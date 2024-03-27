@@ -1,17 +1,22 @@
 .app-header {
     height: 4rem;
+    grid-template-rows: 1.75rem 7rem;
+    height: min-content;
+}
+
+.app-header .head {
+    height: 1.75rem;
+    background-color: var(--clr1);
+
+}
+
+.app-header .header-nav {
     display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: max-content max-content auto max-content max-content;
-    border-block-end: 1px solid var(--border-color);
-    padding: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
 }
 
-.app-header div {
-    height: 100%;
-}
-
-.app-header img {
+/* .app-header img {
     max-height: 2.7rem;
 }
 
@@ -68,4 +73,4 @@
     height: 3.0003rem;
     width: 3.0003rem;
 }
-
+ */

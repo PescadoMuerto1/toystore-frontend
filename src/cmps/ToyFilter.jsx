@@ -18,13 +18,13 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
 
     return (
-        <div>
+        <div className="toy-filter">
             <form onSubmit={ev => ev.preventDefault()}>
-                <label htmlFor="name">name:</label>
+                <label htmlFor="name"></label>
                 <input type="text"
                     id="name"
                     name="txt"
-                    placeholder="By name"
+                    placeholder="Search"
                     value={filterByToEdit.txt}
                     onChange={handleChange}
                 />

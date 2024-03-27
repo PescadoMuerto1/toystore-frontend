@@ -1,0 +1,31 @@
+.toy-preview {
+    width: 250px;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.toy-preview img {
+    background-color: var(--clr1-2);
+    width: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.toy-preview .btns-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.toy-preview button{
+    height: 1.7rem;
+    width: 5rem;
+    background-color: var(--clr1);
+    color: var(--txt-clr1);
+    border: none;
+    border-radius: 1rem;
+}
+
+.toy-preview h4 {
+    color: gray;
+}

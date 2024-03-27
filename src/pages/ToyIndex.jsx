@@ -42,13 +42,17 @@ export function ToyIndex() {
     }
 
     return (
-        <main>
-            <NavLink to="/toy/edit" className="btn-add">Add Toy</NavLink>
-            <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+        <main className="content-layout">
+            <div className="add-and-filter-container">
+                <NavLink to="/toy/edit" className="btn-add">Add toy</NavLink>
+                <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} /></div>
             {!isLoading
-                ? <ToyList
-                    toys={toys} onRemoveToy={onRemoveToy} onSelectToy={onSelectToy} />
+                ? 
+                    <ToyList
+                        toys={toys} onRemoveToy={onRemoveToy} onSelectToy={onSelectToy} />
+                
                 : <div>Loading...</div>}
+
         </main>
     )
 }
