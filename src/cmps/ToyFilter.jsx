@@ -19,7 +19,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
 
     return (
         <div>
-            <form >
+            <form onSubmit={ev => ev.preventDefault()}>
                 <label htmlFor="name">name:</label>
                 <input type="text"
                     id="name"

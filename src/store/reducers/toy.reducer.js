@@ -1,4 +1,4 @@
-import { toyService } from "../../services/toy.service-local.js"
+import { toyService } from "../../services/toy.service"
 
 export const SET_TOYS = 'SET_TOYS'
 export const REMOVE_TOY = 'REMOVE_TOY'
@@ -13,7 +13,7 @@ const initialState = {
     toys: [],
     isLoading: false,
     lastToys: [],
-    filterBy: toyService.getDefaultFilter()
+    filterBy: toyService.getDefaultFilterBy()
 }
 
 export function toyReducer(state = initialState, action = {}) {

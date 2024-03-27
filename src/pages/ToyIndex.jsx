@@ -16,7 +16,8 @@ export function ToyIndex() {
     useEffect(() => {
         loadToys()
             .catch(err => {
-                showErrorMsg('Cannot load toys!')
+                console.error(err)
+                // showErrorMsg('Cannot load toys!')
             })
     }, [filterBy])
 

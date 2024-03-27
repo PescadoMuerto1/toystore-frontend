@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { toyService } from "../services/toy.service-local"
+import { toyService } from "../services/toy.service"
 import { saveToy } from "../store/actions/toy.actions"
 
 export function ToyEdit() {
