@@ -18,11 +18,9 @@ function query(filterBy = {}) {
     return storageService.query(STORAGE_KEY)
         .then(toys => {
             if (!filterBy.txt) filterBy.txt = ''
-            if (!filterBy.maxPrice) filterBy.maxPrice = Infinity
             const regExp = new RegExp(filterBy.txt, 'i')
             return toys.filter(toy =>
-                regExp.test(toy.vendor) &&
-                toy.price <= filterBy.maxPrice
+                regExp.test(toy.name)
             )
         })
 }
@@ -40,7 +38,6 @@ function save(toy) {
     if (toy._id) {
         return storageService.put(STORAGE_KEY, toy)
     } else {
-        toy.owner = userService.getLoggedinUser()
         return storageService.post(STORAGE_KEY, toy)
     }
 }
@@ -57,7 +54,7 @@ function getEmptyToy() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', maxPrice: '' }
+    return { txt: ''}
 }
 
 function _createToys() {
