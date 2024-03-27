@@ -1,6 +1,6 @@
 .app-header {
     height: 4rem;
-    grid-template-rows: 1.75rem 7rem;
+    grid-template-rows: 1.75rem 8rem;
     height: min-content;
 }
 
@@ -12,8 +12,18 @@
 
 .app-header .header-nav {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1.5fr 1fr;
     align-items: center;
+}
+
+.app-header .logo {
+    display: grid;
+    place-items: center;
+}
+
+.app-header .logo img{
+    height: 7.5rem;
+    padding: 0.3rem;
 }
 
 /* .app-header img {

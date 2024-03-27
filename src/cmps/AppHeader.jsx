@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import logoImg from '../assets/img/logo.png'
 
 export const AppHeader = () => {
     return <header className="app-header full app-layout" >
@@ -10,6 +11,7 @@ export const AppHeader = () => {
                 <NavLink className="header-link" to="/toy">Shop</NavLink>
                 <NavLink className="header-link" to="/about">About Us</NavLink>
             </nav>
+            <div className='logo'>  <img src={logoImg} /></div>
         </section>
     </header>
 }
