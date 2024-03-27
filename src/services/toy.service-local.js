@@ -11,7 +11,7 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
-    getDefaultFilter
+    getDefaultFilterBy
 }
 
 function query(filterBy = {}) {
@@ -53,7 +53,7 @@ function getEmptyToy() {
     }
 }
 
-function getDefaultFilter() {
+function getDefaultFilterBy() {
     return { txt: ''}
 }
 

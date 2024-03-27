@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { loadToys, removeToyOptimistic, setFilterBy } from "../store/actions/toy.actions"
 import { ToyList } from "../cmps/ToyList"
 import { ToyFilter } from "../cmps/ToyFilter"
-import { useNavigate } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 
 export function ToyIndex() {
 
@@ -43,10 +43,11 @@ export function ToyIndex() {
 
     return (
         <main>
-            <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter}/>
+            <NavLink to="/toy/edit" className="btn-add">Add Toy</NavLink>
+            <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             {!isLoading
                 ? <ToyList
-                    toys={toys} onRemoveToy={onRemoveToy} onSelectToy={onSelectToy}/>
+                    toys={toys} onRemoveToy={onRemoveToy} onSelectToy={onSelectToy} />
                 : <div>Loading...</div>}
         </main>
     )
