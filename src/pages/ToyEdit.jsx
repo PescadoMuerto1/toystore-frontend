@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { toyService } from "../services/toy.service-local"
+import { toyService } from "../services/toy.service"
 import { saveToy } from "../store/actions/toy.actions"
 
 export function ToyEdit() {
@@ -34,7 +34,7 @@ export function ToyEdit() {
     return <section>
         <form onSubmit={onSave}>
             <input type="text" name="name" value={toy.name} onChange={handleChange} placeholder="Name" />
-            <input type="text" name="number" value={toy.price} onChange={handleChange} placeholder="Price" />
+            <input type="number" name="price" value={toy.price} onChange={handleChange} placeholder="Price" />
             <button>Save</button>
         </form>
     </section>

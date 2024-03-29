@@ -1,4 +1,5 @@
 .toy-preview {
+    position: relative;
     width: 250px;
     font-size: 0.9rem;
     text-align: center;
@@ -28,4 +29,11 @@
 
 .toy-preview h4 {
     color: gray;
+}
+
+.toy-preview .liked{
+    position: absolute;
+    top: 1.3rem;
+    right: 1.3rem;
+    color: var(--clr1);
 }

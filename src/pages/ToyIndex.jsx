@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
 
-import { loadToys, removeToyOptimistic, setFilterBy } from "../store/actions/toy.actions"
+import { loadToys, removeToyOptimistic, setFilterBy, saveToy } from "../store/actions/toy.actions"
 import { ToyList } from "../cmps/ToyList"
 import { ToyFilter } from "../cmps/ToyFilter"
 import { NavLink, useNavigate } from "react-router-dom"
@@ -26,6 +26,7 @@ export function ToyIndex() {
     }
 
     function onRemoveToy(ev, toyId) {
+        ev.stopPropagation()
         removeToyOptimistic(toyId)
             .then(() => {
                 console.log('Toy removed')
@@ -41,6 +42,12 @@ export function ToyIndex() {
         navigate(`/toy/edit/${toyId ? toyId : ''}`)
     }
 
+    function handleLikeToy(ev, toy) {
+        ev.stopPropagation()
+        toy.favorite = !toy.favorite
+        saveToy(toy)
+    }
+
     return (
         <main className="content-layout">
             <div className="add-and-filter-container">
@@ -49,7 +56,7 @@ export function ToyIndex() {
             {!isLoading
                 ? 
                     <ToyList
-                        toys={toys} onRemoveToy={onRemoveToy} onSelectToy={onSelectToy} />
+                        toys={toys} onRemoveToy={onRemoveToy} onSelectToy={onSelectToy} handleLikeToy={handleLikeToy} />
                 
                 : <div>Loading...</div>}
 

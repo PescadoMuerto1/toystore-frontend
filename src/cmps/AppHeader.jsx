@@ -1,6 +1,7 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import logoImg from '../assets/img/logo.png'
+import cartImg from '../assets/img/cart3.png'
 
 export const AppHeader = () => {
     return <header className="app-header full app-layout" >
@@ -11,7 +12,14 @@ export const AppHeader = () => {
                 <NavLink className="header-link" to="/toy">Shop</NavLink>
                 <NavLink className="header-link" to="/about">About Us</NavLink>
             </nav>
-            <div className='logo'>  <img src={logoImg} /></div>
+
+            <Link className='logo' to="/"><img src={logoImg} /></Link>
+
+            <nav className="flex justify-between">
+                <NavLink className="header-link" to="/login">Log in</NavLink>
+                <NavLink className="header-link" to="/">Settings</NavLink>
+                <NavLink className="header-link" to="/"><img src={cartImg} />Cart</NavLink>
+            </nav>
         </section>
     </header>
 }
