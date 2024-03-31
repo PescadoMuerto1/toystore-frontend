@@ -16,7 +16,6 @@ export function ToyFilter({ filterBy, onSetFilter }) {
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
-
     return (
         <div className="toy-filter">
             <form onSubmit={ev => ev.preventDefault()}>

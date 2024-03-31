@@ -13,29 +13,31 @@ export function ToyIndex() {
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        loadToys()
-            .catch(err => {
-                console.error(err)
-                // showErrorMsg('Cannot load toys!')
-            })
+    useEffect(async () => {
+        try {
+            await loadToys()
+        }
+        catch (err) {
+            console.error(err)
+            // showErrorMsg('Cannot load toys!')
+        }
     }, [filterBy])
 
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
     }
 
-    function onRemoveToy(ev, toyId) {
+    async function onRemoveToy(ev, toyId) {
         ev.stopPropagation()
-        removeToyOptimistic(toyId)
-            .then(() => {
-                console.log('Toy removed')
-                // showSuccessMsg('Toy removed')
-            })
-            .catch(err => {
-                // showErrorMsg('Cannot remove toy')
-                console.error(err, 'Cannot remove toy')
-            })
+        try {
+            await removeToyOptimistic(toyId)
+            console.log('Toy removed')
+            // showSuccessMsg('Toy removed')
+        }
+        catch (err) {
+            // showErrorMsg('Cannot remove toy')
+            console.error(err, 'Cannot remove toy')
+        }
     }
 
     function onSelectToy(toyId) {
@@ -54,10 +56,10 @@ export function ToyIndex() {
                 <NavLink to="/toy/edit" className="btn-add">Add toy</NavLink>
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} /></div>
             {!isLoading
-                ? 
-                    <ToyList
-                        toys={toys} onRemoveToy={onRemoveToy} onSelectToy={onSelectToy} handleLikeToy={handleLikeToy} />
-                
+                ?
+                <ToyList
+                    toys={toys} onRemoveToy={onRemoveToy} onSelectToy={onSelectToy} handleLikeToy={handleLikeToy} />
+
                 : <div>Loading...</div>}
 
         </main>
